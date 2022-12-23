@@ -13,13 +13,12 @@ with open('intents.json', 'r') as f:
     intents = json.load(f)
 
 all_words = []
-all_ages = []
-all_genders = []
-all_surnames = []
+# all_ages = []
+# all_genders = []
+# all_surnames = []
 
 tags = []
 xy = []
-
 
 # loop through each sentence in our intents patterns
 for intent in intents['intents']:
@@ -34,49 +33,39 @@ for intent in intents['intents']:
         # add to xy pair
         xy.append((w, tag))
     
+
     # for age in intent["ages"]:
     #     all_ages.append(age)
 
-    for gender in intent["genders"]:
-        w = tokenize(gender)
-        all_genders.extend(w)
+    # for gender in intent["genders"]:
+    #     w = tokenize(gender)
+    #     all_genders.extend(w)
 
-    for surname in intent["surnames"]:
-        w = tokenize(surname)
-        all_surnames.extend(w)
+    # for surname in intent["surnames"]:
+    #     w = tokenize(surname)
+    #     all_surnames.extend(w)
 
 # stem and lower each word
 ignore_words = ['?', '.', '!']
 all_words = [stem(w) for w in all_words if w not in ignore_words]
-all_genders = [stem(w) for w in all_genders if w not in ignore_words]
-all_surnames = [stem(w) for w in all_surnames if w not in ignore_words]
+# all_genders = [stem(w) for w in all_genders if w not in ignore_words]
+# all_surnames = [stem(w) for w in all_surnames if w not in ignore_words]
 
 # remove duplicates and sort
 all_words = sorted(set(all_words))
-all_genders = sorted(set(all_genders))
-all_surnames = sorted(set(all_surnames))
-ages = [i for i in range(18, 23)]
 
-pers_infos = []
-for gender in all_genders:
-    for age in ages:
-        for surname in all_surnames:
-            for word in all_words:
-                pers_info = ("_").join([gender, str(age), surname, word])
-                pers_infos.append(pers_info)
 
-new_xy = []
-for intent in intents['intents']:
-    tag = intent['tag']
-    # add to tag list
-    tags.append(tag)
-    for info in pers_infos:
-        # tokenize each word in the sentence
-        w = tokenize(info)
-        # # add to our words list
-        # all_words.extend(w)
-        # add to xy pair
-        new_xy.append((w, tag))
+# all_genders = sorted(set(all_genders))
+# all_surnames = sorted(set(all_surnames))
+# ages = [i for i in range(18, 23)]
+
+# pers_infos = []
+# for gender in all_genders:
+#     for age in ages:
+#         for surname in all_surnames:
+#             for word in all_words:
+#                 pers_info = ("_").join([gender, str(age), surname, word])
+#                 pers_infos.append(pers_info)
     
 
 tags = sorted(set(tags))
@@ -154,7 +143,7 @@ for epoch in range(num_epochs):
         loss.backward()
         optimizer.step()
         
-    if (epoch+1) % 100 == 0:
+    # if (epoch+1) % 100 == 0:
         print (f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}')
 
 
