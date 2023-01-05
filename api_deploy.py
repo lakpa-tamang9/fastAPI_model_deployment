@@ -20,11 +20,11 @@ class Score(BaseModel):
     gender: str
 
 def load_intents():
-    with open('intents.json', 'r') as json_data:
+    with open('./resources/intents.json', 'r') as json_data:
         return json.load(json_data)
 
 def load_txt():
-    with open("./fortune_lake.txt", "r") as f:
+    with open("./resources/fortune_lake.txt", "r") as f:
         return f.read()
 
 def load_model(file):
@@ -51,30 +51,32 @@ def input_processing(personal_info, all_words):
     return X
 
 def search_sentence(fortune_sentences, keywords):
+    final_fortune = []
     fortune = tok.sent_tokenize(fortune_sentences)
     for fort in fortune:
         for keyword in keywords:
             if keyword in fort:
-                final_fortune = fort
-    return final_fortune
+                final_fortune.append(fort)
+    return set(final_fortune)
 
 @app.get("/")
 async def predict(item: Score):
-    model, all_words, tags = load_model("./model.pth")
+    model, all_words, tags = load_model("./models/model.pth")
     intents = load_intents()
     fortune_sentences = load_txt()
-    data_list = [item.dict().values()]
-    X = (" ").join(str(val) for val in data_list)
-    input_data = input_processing(X, all_words)
+    request_json = item.dict()
+    data_list = list(request_json.values())
+    concat_input = (" ").join([str(val) for val in data_list])
+    input_data = input_processing(concat_input, all_words)
     output = model(input_data)
     _, predicted = torch.max(output, dim=1)
 
     tag = tags[predicted.item()]
-    print(tag)
-    probs = torch.softmax(output, dim=1)
+    # probs = torch.softmax(output, dim=1)
     # prob = probs[0][predicted.item()]
     # print(prob.item())
-    # if prob.item() > 0.75:
+        # if prob.item() > 0.75:
+
     for intent in intents['intents']:
         if tag == intent["tag"]:
             print(f"Keywords: {random.choice(intent['responses'])}")

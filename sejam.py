@@ -9,10 +9,10 @@ from nltk import tokenize as tok
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-with open('intents.json', 'r') as json_data:
+with open('./resources/intents.json', 'r') as json_data:
     intents = json.load(json_data)
 
-FILE = "data.pth"
+FILE = "./models/model.pth"
 data = torch.load(FILE)
 
 input_size = data["input_size"]
@@ -58,14 +58,16 @@ for intent in intents['intents']:
 #Algorithm for selecting the sentences.
 # Load the sentences from fortune lake json
 
-with open("./fortune_lake.txt", "r") as f:
+with open("./resources/fortune_lake.txt", "r") as f:
     fortune_sentences = f.read()
 
 fortune = tok.sent_tokenize(fortune_sentences)
+final_fortune = []
 for fort in fortune:
     for keyword in keywords:
         if keyword in fort:
-            final_fortune = fort
+            final_fortune.append(fort)
 
-print(final_fortune)
+final_list = (" ").join(sentence for sentence in set(final_fortune))
+print(final_list)
     
