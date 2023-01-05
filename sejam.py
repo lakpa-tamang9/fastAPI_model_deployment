@@ -5,6 +5,7 @@ import torch
 
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
+from nltk import tokenize as tok
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -25,10 +26,9 @@ model = NeuralNet(input_size, hidden_size, output_size).to(device)
 model.load_state_dict(model_state)
 model.eval()
 
-
 # sentence = "do you use credit cards?"
 name = input("Enter your name: ")
-bday = int(input("Please enter your birth date !: "))
+bday = int(input("Please enter your age !: "))
 gender = input("Please identify your gender!: ")
 place = input("Where are you from ?: ")
 
@@ -48,11 +48,24 @@ tag = tags[predicted.item()]
 
 probs = torch.softmax(output, dim=1)
 prob = probs[0][predicted.item()]
-print(prob.item())
+# print(prob.item())
 # if prob.item() > 0.75:
 for intent in intents['intents']:
     if tag == intent["tag"]:
-        print(random.choice(intent['responses']))
-        # print(intent['responses'])
-# else:
-#     print("Error")
+        print(f"Keywords: {random.choice(intent['responses'])}")
+        keywords = random.choice(intent['responses'])
+
+#Algorithm for selecting the sentences.
+# Load the sentences from fortune lake json
+
+with open("./fortune_lake.txt", "r") as f:
+    fortune_sentences = f.read()
+
+fortune = tok.sent_tokenize(fortune_sentences)
+for fort in fortune:
+    for keyword in keywords:
+        if keyword in fort:
+            final_fortune = fort
+
+print(final_fortune)
+    

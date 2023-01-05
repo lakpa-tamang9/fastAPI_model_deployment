@@ -1,0 +1,59 @@
+{
+    "Fortune 1": {
+      "Sentence": "You will experience a windfall of financial abundance in the near future.",
+      "Keywords": ["windfall", "financial abundance", "near future"]
+    },
+    "Fortune 2": {
+      "Sentence": "A new romantic opportunity will present itself to you in the coming weeks.",
+      "Keywords": ["romantic opportunity", "coming weeks"]
+    },
+    "Fortune 3": {
+      "Sentence": "An unexpected career change is on the horizon, but it will bring you great success.",
+      "Keywords": ["career change", "horizon", "success"]
+    },
+    "Fortune 4": {
+      "Sentence": "Your hard work and determination will soon be recognized, leading to a promotion or other professional advancement.",
+      "Keywords": ["hard work", "determination", "promotion", "professional advancement"]
+    },
+    "Fortune 5": {
+      "Sentence": "A trip or vacation that you have been planning for some time will finally come to fruition.",
+      "Keywords": ["trip", "vacation", "fruition"]
+    },
+    "Fortune 6": {
+      "Sentence": "Your future looks bright and filled with new opportunities for personal growth and development.",
+      "Keywords": ["future", "bright", "opportunities", "personal growth", "development"]
+    },
+    "Fortune 7": {
+      "Sentence": "You will receive good news about a financial investment you have made.",
+      "Keywords": ["good news", "financial investment"]
+    },
+    "Fortune 8": {
+      "Sentence": "You will find a solution to a longstanding problem that has been causing you stress.",
+      "Keywords": ["solution", "longstanding problem", "stress"]
+    },
+    "Fortune 9": {
+      "Sentence": "You will be reunited with an old friend or loved one in the near future.",
+      "Keywords": ["reunited", "old friend", "loved one", "near future"]
+    },
+    "Fortune 10": {
+      "Sentence": "You will be offered a new job or project that will be challenging but rewarding.",
+      "Keywords": ["new job", "project", "challenging", "rewarding"]
+    },
+    "Fortune 11": {
+      "Sentence": "You will receive a gift or surprise that will bring you much joy.",
+      "Keywords": ["gift", "surprise", "joy"]
+    },
+    "Fortune 12": {
+      "Sentence": "Your relationship with your significant other will grow stronger and more meaningful.",
+      "Keywords": ["relationship", "significant other", "stronger", "meaningful"]
+    },
+    "Fortune 13": {
+      "Sentence": "You will discover a new talent or hobby that brings you great satisfaction.",
+      "Keywords": ["talent", "hobby", "satisfaction"]
+    },
+    "Fortune 14": {
+      "Sentence": "You will find success in a new venture or business venture that you have been considering.",
+      "Keywords": ["success", "new venture", "business venture"]
+    }
+}
+  

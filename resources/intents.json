@@ -1,0 +1,62 @@
+{
+    "intents": [
+      {
+        "tag": "region_A",
+        "places": [
+          "busan",
+          "Changwon",
+          "Gimhae",
+          "Jinju"
+        ],
+        "responses": [["abundance", "prosperity", "wealth", "success"], 
+        ["good fortune", "good luck", "opportunities", "personal growth"],
+        ["development", "happiness", "health", "love"],
+        ["relationship fulfillment", "professional advancement", "financial stability", "security"]]
+      },
+      {
+        "tag": "region_B",
+        "places": ["seoul", "Incheon", "suwon"],
+        "responses": [
+          ["comfort", "contentment", "fulfillment", "bliss"],
+          ["emotional well-being", "mental clarity", "physical vitality", "strong relationships"],
+          ["positive impact", "meaningful work", "personal achievements", "creative expression"],
+          ["adventure", "travel", "freedom", "control over one's life"]
+        ]
+      },
+      {
+        "tag": "region_C",
+        "places": ["Gwangju", "Mokpo", "Gunsan"],
+        "responses": [["personal autonomy", "good health", "nurturing friendships", "strong social connections"],
+        ["supportive community", "fulfilling hobbies", "personal growth and learning", "spirituality and inner peace"],
+        ["financial security", "generosity", "gratitude", "contentment"],
+        ["peace of mind", "purpose", "direction", "achievements"]]
+      },
+      {
+        "tag": "region_D",
+        "places": [
+          "Ulsan",
+          "Pohang",
+          "Gangneung"
+        ],
+        "responses": [["satisfaction", "hope", "optimism", "self-actualization"],
+        ["fulfilling relationships", "acceptance", "tolerance", "empathy"],
+        ["compassion", "understanding", "forgiveness", "love"],
+        ["appreciation", "joy", "happiness", "contentment"]]
+      },
+      {
+        "tag": "region_E",
+        "places": [
+          "Daejon",
+          "Sejong",
+          "Gumi",
+          "Daegu"
+        ],
+        "responses": [
+          ["inner peace", "serenity", "calmness", "tranquility"],
+    ["harmony", "balance", "stability", "equilibrium"],
+    ["well-being", "wholeness", "completeness", "health"],
+    ["prosperity", "abundance", "plenty", "satisfaction"]
+        ]
+      }
+    ]
+  }
